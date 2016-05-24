@@ -21,4 +21,35 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<property name="logic" ref="logic"/>
 	</bean>
 	
+	<bean id="mybean3" class="di.setter01.MyBeanImpl">
+		<constructor-arg value="장동건" index="1"/>
+		<constructor-arg value="안녕" index="0"/>
+		<property name="logic" ref="logic"/>
+	</bean>
+	
+	
+	<bean id="dice" class="di.setter02.Dice"/>
+	<bean id="player" class="di.setter02.Player">
+		<property name="d" ref="dice"/>
+	</bean>
+	
+	
+	
+	<bean id="console" class="di.setter03.ConsoleOutputter">
+		<property name="filePath" value="filepath"/>
+	</bean>
+	<bean id="file" class="di.setter03.FileOutputter">
+		<property name="filePath" value="filepath"/>
+	</bean>
+	<bean id="message" class="di.setter03.MessageBean">
+		<property name="name" value="장동건"/>
+		<property name="greeting" value="하이~"/>
+		<property name="outputter" ref="console"/>
+	</bean>
+	<bean id="message2" class="di.setter03.MessageBean">
+		<property name="name" value="장동건"/>
+		<property name="greeting" value="하이~"/>
+		<property name="outputter" ref="file"/>
+	</bean>
+	
 </beans>
