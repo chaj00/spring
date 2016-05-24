@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dao" class="di.setter.basic.MemberDAO"/>
+	<!-- setter Injection을 이용해서 컨테이너로 부터 주입받기  -->
+	<bean id="insa" class="di.setter.basic.InsaImpl">
+		<!-- property엘리먼트의 name속성은 무엇을 의미? 뭘적어야 할까? 멤버변수명?X setter메소드명?X
+			name : setter메소드의 set을 빼고 첫글자를 소문자로 바꾼 이름
+		  -->
+		<property name="dao" ref="dao"/>
+	</bean>
+	
+	
+	<bean id="logic" class="di.setter01.MyBeanLogic"/>
+	<bean id="mybean" class="di.setter01.MyBeanImpl">
+		<property name="name" value="장동건"/>
+		<property name="msg" value="안녕~"/>
+		<property name="logic" ref="logic"/>
+	</bean>
+	
+</beans>
