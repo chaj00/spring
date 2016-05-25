@@ -3,7 +3,7 @@ package di.constructor04;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestMain {
+public class TestMain3 {
 	public static void main(String[] args){
 		ApplicationContext container = 
 				new ClassPathXmlApplicationContext("config/bean.xml");
@@ -20,6 +20,8 @@ public class TestMain {
 		
 		if(oracle_mgr==oracle_mgr2){
 			System.out.println("같다");
+		}else{
+			System.out.println("다르다");
 		}
 	}
 }

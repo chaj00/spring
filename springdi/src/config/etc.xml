@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="test" class="etc.ConstructorTest">
+		<constructor-arg value="100" type="int"/>
+		<constructor-arg value="200" type="int"/>
+	</bean>
+	
+	<bean id="test2" class="etc.ConstructorTest">
+		<constructor-arg value="100" name="num5" />
+		<constructor-arg value="200" name="num6"/>
+	</bean>
+	
+	
+	<bean id="collection" class="etc.CollectionTest">
+		<property name="list">
+			<list>
+				<value>오라클</value>
+				<value>java</value>
+				<value>jdbc</value>
+				<value>html</value>
+				<value>javascript</value>
+			</list>
+		</property>
+		
+		<property name="map">
+			<map>
+				<entry>
+					<key>
+						<value>db</value>
+					</key>
+					<value>mongodb</value>
+				</entry>
+				<entry key="bigdata1" value="hadoop"/>
+				<entry key="bigdata2" value="flume"/>
+				<entry key="bigdata3" value="spark"/>
+				<entry key="bigdata4" value="pig"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
