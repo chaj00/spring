@@ -16,6 +16,16 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	</bean>
 	
 	
+	<bean id="deptdao" class="mydept.MyDeptDAOImpl">
+		<constructor-arg ref="template"/>
+	</bean>
+	<bean id="deptmenu" class="mydept.MenuUI">
+		<constructor-arg ref="deptdao"/>
+	</bean>
+	
+	
+	
+	
 	
 	
 </beans>
