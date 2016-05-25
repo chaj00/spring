@@ -44,4 +44,15 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	</bean>
 	
 	
+	<bean id="mysql" class="di.constructor04.MysqlArticleDAO"/>
+	<bean id="oracle" class="di.constructor04.OracleArticleDAO"/>
+	<bean id="mgr_mysql" class="di.constructor04.WriteArticleMgr">
+		<constructor-arg ref="mysql"/>
+	</bean>
+	
+	<bean id="mgr_oracle" class="di.constructor04.WriteArticleMgr">
+		<constructor-arg ref="oracle"/>
+	</bean>
+	
+	
 </beans>

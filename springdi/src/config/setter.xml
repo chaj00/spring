@@ -52,4 +52,14 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<property name="outputter" ref="file"/>
 	</bean>
 	
+	<bean id="mysql" class="di.setter04.MysqlArticleDAO"/>
+	<bean id="oracle" class="di.setter04.OracleArticleDAO"/>
+	<bean id="mgr_mysql" class="di.setter04.WriteArticleMgr">
+		<property name="articleDAO" ref="mysql"/>
+	</bean>
+	
+	<bean id="mgr_oracle" class="di.setter04.WriteArticleMgr">
+		<property name="articleDAO" ref="oracle"/>
+	</bean>
+	
 </beans>
