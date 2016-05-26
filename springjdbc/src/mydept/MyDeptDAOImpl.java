@@ -20,7 +20,7 @@ public class MyDeptDAOImpl implements MyDeptDAO{
 
 	@Override
 	public int count() {
-		return template.queryForObject("select count(*) from myemp",Integer.class) ;
+		return template.queryForObject("select count(*) from mydept",Integer.class) ;
 	}
 
 	@Override
