@@ -63,7 +63,7 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
-		Object[] obj = {(Object)addr};
+		Object[] obj = {addr};
 		return template.query("select * from myemp where id like in (%?%)", obj,new MyEmpRowMapper());
 	}
 
