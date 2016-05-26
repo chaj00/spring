@@ -45,15 +45,16 @@ public class MenuUI implements AbstractUI {
 				deleteMenu();
 				break;
 			case 5:
+				System.out.println("시스템을 종료합니다.");
 				System.exit(0);
 		}
 	}
 	@Override
 	public void deleteMenu() {
 		System.out.println("******삭제*******");
-		System.out.println("삭제할 아이디를 입력하세요:");
-		String id = key.next();
-		dao.delete(id);
+		System.out.println("삭제할 부서번호를 입력하세요:");
+		String deptno = key.next();
+		dao.delete(deptno);
 
 	}
 

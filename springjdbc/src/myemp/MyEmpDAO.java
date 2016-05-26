@@ -8,7 +8,7 @@ public interface MyEmpDAO {
 	//회원가입
 	void insert(MyEmpDTO user);
 	//회원정보수정
-	void update(MyEmpDTO userInfo);
+	void update(MyEmpDTO user);
 	//회원탈퇴
 	void delete(String id);
 	//로그인

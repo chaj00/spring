@@ -58,14 +58,13 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 
 	@Override
 	public List<MyEmpDTO> getMemberList() {
-		// TODO Auto-generated method stub
-		return null;
+		return template.query("select * from myemp", new MyEmpRowMapper());
 	}
 
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] obj = {(Object)addr};
+		return template.query("select * from myemp where id like in (%?%)", obj,new MyEmpRowMapper());
 	}
 
 }
