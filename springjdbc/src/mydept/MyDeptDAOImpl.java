@@ -2,6 +2,7 @@ package mydept;
 
 import java.util.List;
 
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MyDeptDAOImpl implements MyDeptDAO{
@@ -48,6 +49,19 @@ public class MyDeptDAOImpl implements MyDeptDAO{
 		
 		System.out.println(result+"∞≥ ªË¡¶");
 		
+	}
+	@Override
+	public MyDeptDTO findByDeptno(String deptno) {
+		return template.queryForObject("select * from mydept where deptno = ?", new Object[]{deptno},new MyDeptRowMapper());
+	}
+	@Override
+	public List<MyDeptDTO> getDeptList() {
+		return template.query("select * from mydept", new MyDeptRowMapper());
+	}
+	
+	@Override
+	public List<MyEmpDTO> getMemberList(String deptname) {
+		return template.query("select e.* from myemp e, mydept d where e.deptno=d.deptno and d.deptname like ?", new Object[]{"%"+deptname+"%"}, new MyEmpRowMapper());
 	}
 
 

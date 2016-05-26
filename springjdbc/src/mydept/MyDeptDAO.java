@@ -11,7 +11,12 @@ public interface MyDeptDAO {
 	void update(MyDeptDTO dept);
 	//조직삭제
 	void delete(String id);
-
+	
+	MyDeptDTO findByDeptno(String deptno);
+	
+	List<MyDeptDTO> getDeptList();
+	
+	List<MyEmpDTO> getMemberList(String deptname);
 	
 }
 
