@@ -2,6 +2,7 @@ package myemp;
 
 import java.util.List;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MyEmpDAOImpl implements MyEmpDAO{
@@ -52,8 +53,18 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 
 	@Override
 	public MyEmpDTO login(String id, String pass) {
-		Object[] obj = {id,pass};
-		return template.queryForObject("select * from myemp where id=? and pass=?", new MyEmpRowMapper(),obj);
+		MyEmpDTO loginUser=null;
+		try{
+			loginUser = template.queryForObject(
+										"select * from myemp where id=? and pass=?",
+														new Object[]{id,pass}, 
+																new MyEmpRowMapper());
+	
+		}catch(EmptyResultDataAccessException e){
+			
+		}
+		
+		return loginUser; 
 	}
 
 	@Override
