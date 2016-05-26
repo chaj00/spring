@@ -122,7 +122,7 @@ public class MenuUI implements AbstractUI {
 		System.out.print(dept.getDeptno()+"\t");
 		System.out.print(dept.getDeptname()+"\t");
 		System.out.print(dept.getLoc()+"\t");
-		System.out.print(dept.getTelNum()+"\t");
+		System.out.println(dept.getTelNum()+"\t");
 
 	}
 	@Override
