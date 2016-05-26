@@ -52,8 +52,8 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 
 	@Override
 	public MyEmpDTO login(String id, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] obj = {id,pass};
+		return template.queryForObject("select * from myemp where id=? and pass=?", new MyEmpRowMapper(),obj);
 	}
 
 	@Override
