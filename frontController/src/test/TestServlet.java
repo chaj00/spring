@@ -2,6 +2,7 @@ package test;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,12 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("요청받기");
 		ServletContext context = getServletContext();
+		ServletConfig config = getServletConfig();
+		String email = config.getInitParameter("email");
+		System.out.println(email);
+		
+		
+		
 		System.out.println(context.getContextPath());
 		System.out.println(request.getRequestURI());
 		System.out.println(request.getRequestURL());

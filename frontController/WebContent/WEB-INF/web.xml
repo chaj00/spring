@@ -12,6 +12,10 @@
   <servlet>
     <servlet-name>front</servlet-name>
     <servlet-class>test.TestServlet</servlet-class>
+    <init-param>
+    	<param-name>email</param-name>
+    	<param-value>chaj00@nate.com</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>front</servlet-name>

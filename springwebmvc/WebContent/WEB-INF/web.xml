@@ -12,6 +12,13 @@
 	<servlet>
 		<servlet-name>springapp</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/config/springmvc1.xml
+				/WEB-INF/config/springmvc2.xml
+			</param-value>
+		</init-param>		
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
