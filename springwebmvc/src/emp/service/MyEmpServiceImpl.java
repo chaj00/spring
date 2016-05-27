@@ -53,7 +53,7 @@ public class MyEmpServiceImpl implements MyEmpService{
 
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
-		return null;
+		return dao.findByAddr(addr);
 	}
 
 	

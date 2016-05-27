@@ -14,6 +14,8 @@
 		<h3><a href="test.do">스프링 웹 MVC연동하기</a></h3>
 		<h3><a href="insert_form.do">회원가입</a></h3>
 		<h3><a href="list.do">회원목록보기</a></h3>
+		<h3><a href="search_form.do">회원검색(검색액션:/search.do)</a></h3>
+		
 
 	</div>
 </body>

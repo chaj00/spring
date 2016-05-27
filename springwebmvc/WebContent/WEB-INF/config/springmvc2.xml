@@ -16,6 +16,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- ======== 화면을 보여주는 컨트롤러 ========  -->
 	<bean name="/index.do" class="main.IndexController"/>
 	<bean name="/insert_form.do" class="emp.controller.InsertFormController"/>
+	<bean name="/search_form.do" class="emp.controller.SearchFormController"/>
 	
 	
 	<!-- ======== 비지니스로직을 위한 빈 ========  -->
@@ -28,6 +29,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- ======== 기능을 수행하는 컨트롤러 ======== -->
 	<bean name="/list.do" class="emp.controller.ListController">
+		<constructor-arg ref="service"/>
+	</bean>
+	<bean name="/search.do" class="emp.controller.SearchController">
 		<constructor-arg ref="service"/>
 	</bean>
 	
