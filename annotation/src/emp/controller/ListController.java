@@ -1,31 +1,25 @@
 package emp.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
 
 import emp.dto.MyEmpDTO;
 import emp.service.MyEmpService;
 
-public class ListController extends AbstractController {
+
+@Controller
+public class ListController{
+	@Autowired
 	MyEmpService service;
 	
-	public ListController(MyEmpService service) {
-		super();
-		this.service = service;
-	}
 
-
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
-			HttpServletResponse arg1) throws Exception {
-		
+	@RequestMapping(value="/list.do", method=RequestMethod.GET)
+	public ModelAndView runList(){
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("userlist", service.getMemberList());
@@ -34,5 +28,7 @@ public class ListController extends AbstractController {
 		
 		return mav;
 	}
+
+
 
 }

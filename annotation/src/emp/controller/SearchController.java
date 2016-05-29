@@ -3,33 +3,37 @@ package emp.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
 
+import emp.dto.MyEmpDTO;
 import emp.service.MyEmpService;
 
-public class SearchController extends AbstractController {
+@Controller
+public class SearchController {
+	@Autowired
 	MyEmpService service;
 	
-	public SearchController(MyEmpService service) {
-		super();
-		this.service = service;
+	
+	@RequestMapping(value="/search.do", method=RequestMethod.GET)
+	public String showPage(){
+		return "emp/search";
 	}
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
-			HttpServletResponse arg1) throws Exception {
-		arg0.setCharacterEncoding("euc-kr");
+
+	@RequestMapping(value="/search.do", method=RequestMethod.POST)
+	public ModelAndView runSearch(HttpServletRequest req, String search){
 		
-		String addr=arg0.getParameter("search");
-		System.out.println(addr);
-				
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("userlist", service.findByAddr(addr));
+		mav.addObject("userlist", service.findByAddr(search));
 		
 		mav.setViewName("emp/searchlist");
 		
 		return mav;
 	}
+		
 
 }
