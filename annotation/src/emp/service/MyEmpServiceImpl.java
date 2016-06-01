@@ -29,12 +29,12 @@ public class MyEmpServiceImpl implements MyEmpService{
 
 	@Override
 	public void update(MyEmpDTO user) {
-		
+		dao.update(user);
 	}
 
 	@Override
 	public void delete(String id) {
-		
+		dao.delete(id);
 	}
 
 	@Override
@@ -50,6 +50,11 @@ public class MyEmpServiceImpl implements MyEmpService{
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
 		return dao.findByAddr(addr);
+	}
+
+	@Override
+	public MyEmpDTO read(String id) {
+		return dao.read(id);
 	}
 
 	

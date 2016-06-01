@@ -20,6 +20,8 @@ public interface MyEmpService {
 	//주소로 검색
 	List<MyEmpDTO> findByAddr(String addr);
 	
+	MyEmpDTO read(String id);
+	
 }
 
 

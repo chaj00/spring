@@ -1,3 +1,4 @@
+<%@page import="emp.dto.MyEmpDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <html>
@@ -5,12 +6,12 @@
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
 <title>회원정보수정</title>
 
-
+<% MyEmpDTO user = (MyEmpDTO)request.getAttribute("user"); %>
 </head>
 
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
 <form name="form1" method="post" 
-					action="member_update.do">
+					action="update.do">
 <table align="center" cellpadding="0" cellspacing="0" width="479">
     <tr>
         <td width="469" colspan="2" height="42">
@@ -27,7 +28,8 @@
             <p><code><b>아이디</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><input type="hidden" name="id" 
+            value="<%=user.getId() %>" size="30"/><%=user.getId() %></code></p>
         </td>
     </tr>
    <tr>
@@ -36,7 +38,7 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="pass" 
-            value="" size="30"></code></p>
+            value="<%=user.getPass() %>" size="30"/></code></p>
         </td>
     </tr>
     <tr>
@@ -44,7 +46,7 @@
             <p><code><b>성명</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><%=user.getName() %></code></p>
         </td>
     </tr>
     <tr>
@@ -53,21 +55,20 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="addr"
-            value="" size="51"></code></p>
+            value="<%=user.getAddr() %>" size="51"/></code></p>
         </td>
     </tr>
- 
+    
     <tr>
         <td width="104">
             <p><code><b>등급</b></code></p>
         </td>
         <td width="359">
             <p><textarea name="grade" rows="10" 
-            cols="50"></textarea></p>
+            cols="50"><%=user.getGrade() %></textarea></p>
         </td>
     </tr>
-   
-   
+    
     <tr>
         <td width="479" colspan="2">
             <hr>        </td>

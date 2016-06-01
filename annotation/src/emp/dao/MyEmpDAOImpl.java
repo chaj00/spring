@@ -33,6 +33,7 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 
 	@Override
 	public void update(MyEmpDTO user) {
+		System.out.println(user);
 		String sql = "update myemp set pass=?, addr=?, grade=? where id=? ";
 		int result = template.update(sql, user.getPass(), user.getAddr(), 
 												user.getGrade(), user.getId());
@@ -72,6 +73,13 @@ public class MyEmpDAOImpl implements MyEmpDAO{
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
 		return template.query("select * from myemp where addr like ?", new Object[]{"%"+addr+"%"},new MyEmpRowMapper());
+	}
+
+	@Override
+	public MyEmpDTO read(String id) {
+		return template.queryForObject("select * from myemp where id=? ",
+															new Object[]{id}, 
+																new MyEmpRowMapper());
 	}
 
 }
