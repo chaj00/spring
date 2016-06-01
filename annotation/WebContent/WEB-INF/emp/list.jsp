@@ -22,13 +22,12 @@
 		<%for(int i = 0;i<size;i++){
 			MyEmpDTO user = userlist.get(i);%>
 			<tr>
-				<td><%= user.getId() %></td>
+				<td><a href="read.do?id=<%=user.getId()%>"><%= user.getId() %></a></td>
 				<td><%= user.getPass() %></td>
 				<td><%= user.getName() %></td>
 				<td><%= user.getAddr()%></td>
 				<td><%= user.getDeptno()%></td>
-				<td>
-		<a href="/webtest/delete.do?id=<%=user.getId() %>">삭제</a></td>
+				<td><a href="delete.do?id=<%=user.getId() %>">삭제</a></td>
 			</tr>
 		<%} %>
 	</table>
