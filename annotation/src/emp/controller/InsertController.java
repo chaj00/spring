@@ -19,7 +19,7 @@ public class InsertController {
 	//get방식으로 요청될때 실행할 메소드 - insert페이지를 response
 	@RequestMapping(value="/insert.do", method=RequestMethod.GET)
 	public String showPage(){
-		return "emp/memberInput";
+		return "input/form";
 	}
 	//post방식으로 요청될때 실행할 메소드 - 실제 db에 insert를 하기 위한 기능을 수행
 	@RequestMapping(value="/insert.do", method=RequestMethod.POST)

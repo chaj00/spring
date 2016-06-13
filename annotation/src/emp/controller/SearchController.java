@@ -20,7 +20,7 @@ public class SearchController {
 	
 	@RequestMapping(value="/search.do", method=RequestMethod.GET)
 	public String showPage(){
-		return "emp/search";
+		return "search/form";
 	}
 
 	@RequestMapping(value="/search.do", method=RequestMethod.POST)
@@ -30,7 +30,7 @@ public class SearchController {
 		
 		mav.addObject("userlist", service.findByAddr(search));
 		
-		mav.setViewName("emp/searchlist");
+		mav.setViewName("searchlist");
 		
 		return mav;
 	}

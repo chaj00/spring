@@ -24,7 +24,7 @@ public class ListController{
 		
 		mav.addObject("userlist", service.getMemberList());
 		
-		mav.setViewName("emp/list");
+		mav.setViewName("list");
 		
 		return mav;
 	}

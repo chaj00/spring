@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="subTemplate"
+			template="/WEB-INF/layout02/layout02.jsp">
+				<put-attribute name="header" value="/WEB-INF/layout02/top.jsp"/>
+				<put-attribute name="left" value="/WEB-INF/layout02/left.jsp"/>
+				<put-attribute name="content" value="/WEB-INF/layout02/content.jsp"/>
+				<put-attribute name="footer" value="/WEB-INF/layout02/footer.jsp"/>
+		
+	</definition>
+	
+	<definition name="list" extends="subTemplate">
+		<put-attribute name="content" value="/WEB-INF/emp/list.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="search/form" extends="subTemplate">
+		<put-attribute name="content" value="/WEB-INF/emp/search.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="searchlist" extends="subTemplate">
+		<put-attribute name="content" value="/WEB-INF/emp/searchlist.jsp"></put-attribute>
+	</definition>
+	
+	
+</tiles-definitions>
