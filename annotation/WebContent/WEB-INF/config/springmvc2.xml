@@ -6,8 +6,22 @@
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		
+	<context:component-scan base-package="main"/>
+	<context:component-scan base-package="test"/>
+	<context:component-scan base-package="emp"/>
+ 
+ 	<!-- ======== spring webmvc에서 지원하는 API들 사용 ========-->
+ 	<bean id="con" class="org.springframework.jndi.JndiObjectFactoryBean">
+ 		<property name="jndiName" value="jdbc/myspring"/>
+ 		<property name="resourceRef" value="true"/>
+ 	</bean>
+ 	
+ 	
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="con"/>		
+	</bean>	
 	
-	<import resource="data.xml"/>
 	
 	<!-- ======== spring webmvc에서 지원하는 API들 사용 ========-->
 	<!-- 1. ViewResolver를 등록 -->
@@ -16,10 +30,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="suffix" value=".jsp"></property>
 		<property name="order" value="2"/>
 	</bean>
-	
-	<context:component-scan base-package="main"/>
-	<context:component-scan base-package="test"/>
-	<context:component-scan base-package="emp"/>
+
 	
 	<!-- Tiles를 이용하여 뷰를 만들 수 있도록 정보를 설정 -->
 	<!-- 1. 스프링이 Tiles프레임워크 기반으로 뷰를 만들어낼수 있도록 설정파일을 등록 -->
